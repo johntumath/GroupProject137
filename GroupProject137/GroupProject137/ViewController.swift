@@ -84,8 +84,12 @@ class ViewController: UIViewController {
         
         
     }
-
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //Dismiss the keyboard when the view is tapped on
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
     
 }
 
