@@ -1,0 +1,6 @@
+framework module Pods_GroupProject137 {
+  umbrella header "Pods-GroupProject137-umbrella.h"
+
+  export *
+  module * { export * }
+}
