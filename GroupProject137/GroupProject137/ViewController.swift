@@ -50,13 +50,42 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        //Check if it's sign in or register
-        if isSignIn{
-            //Sign in the user with FireBase
-        }else{
-            //Register the user with FireBase
+        // TODO: Do some form validation on the email and password
+        
+        if let email = emailTextField.text, let pass = passwordTextField.text{
+            //Check if it's sign in or register
+            if isSignIn{
+                //Sign in the user with FireBase
+                Auth.auth().signIn(withEmail: email, password: pass, completion: { (user, error) in
+                    if let u = user{
+                        //User is found, go to home screen
+                        self.performSegue(withIdentifier: "goToHome", sender: self) //need self keyword since inside closure
+                        
+                    }else{
+                        //Error, check error
+                    }
+                })
+            }else{
+                //Register the user with FireBase
+                
+                Auth.auth().createUser(withEmail: email, password: pass, completion: { (user, error) in
+                    //Check that user isn't nil
+                    if let u = user{
+                        //User is found, go to home screen
+                        self.performSegue(withIdentifier: "goToHome", sender: self)
+                    }else{
+                        //Error: check error and show message
+                        
+                    }
+                })
+            }
+            
         }
+        
+        
     }
 
+
+    
 }
 

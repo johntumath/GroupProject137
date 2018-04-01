@@ -70,7 +70,7 @@
                                                         <rect key="frame" x="94" y="0.0" width="281" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -106,11 +106,39 @@
                         <outlet property="passwordTextField" destination="3iF-uf-Mdk" id="TqR-Ki-Lhd"/>
                         <outlet property="signInLabel" destination="vUi-LU-leQ" id="YLu-Td-i6f"/>
                         <outlet property="signInSelector" destination="1Yn-rd-DNf" id="s7w-xC-UMf"/>
+                        <segue destination="rVk-Um-3hc" kind="show" identifier="goToHome" id="GG0-V3-FtV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PrF-io-s4w">
+            <objects>
+                <viewController id="rVk-Um-3hc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="etY-YK-V41">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're in!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkw-Xe-YkO">
+                                <rect key="frame" x="152" y="323" width="70.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.14117647059999999" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vkw-Xe-YkO" firstAttribute="centerX" secondItem="etY-YK-V41" secondAttribute="centerX" id="OSh-Uh-J9N"/>
+                            <constraint firstItem="vkw-Xe-YkO" firstAttribute="centerY" secondItem="etY-YK-V41" secondAttribute="centerY" id="meB-Qb-PsM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JjC-46-bpe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0N-bR-plm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882.39999999999998" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>
