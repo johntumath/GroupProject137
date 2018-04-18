@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F381BE520868A90002D7DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F381BE420868A90002D7DA7 /* HomeViewController.swift */; };
 		1F844CE420717C21007F1AFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F844CE320717C21007F1AFC /* GoogleService-Info.plist */; };
 		6F587225B15E36EAD77F127F /* Pods_GroupProject137.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B8F909812AA7770EFC8E8F /* Pods_GroupProject137.framework */; };
 		BB6CBEB8203CAE8000EFD231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CBEB7203CAE8000EFD231 /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F381BE420868A90002D7DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F844CE320717C21007F1AFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30B8F909812AA7770EFC8E8F /* Pods_GroupProject137.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject137.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F0296A7F6074C9746AE7DB /* Pods-GroupProject137.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject137.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupProject137/Pods-GroupProject137.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				BB6CBEB7203CAE8000EFD231 /* AppDelegate.swift */,
 				BB6CBEB9203CAE8000EFD231 /* ViewController.swift */,
+				1F381BE420868A90002D7DA7 /* HomeViewController.swift */,
 				BB6CBEBB203CAE8100EFD231 /* Main.storyboard */,
 				BB6CBEBE203CAE8100EFD231 /* Assets.xcassets */,
 				BB6CBEC0203CAE8100EFD231 /* LaunchScreen.storyboard */,
@@ -227,6 +230,7 @@
 			files = (
 				BB6CBEBA203CAE8000EFD231 /* ViewController.swift in Sources */,
 				BB6CBEB8203CAE8000EFD231 /* AppDelegate.swift in Sources */,
+				1F381BE520868A90002D7DA7 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

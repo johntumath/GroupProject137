@@ -21,6 +21,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBAction func logOutButton(_ sender: Any) {
+        
+       
+    }
+    
+    
     var isSignIn: Bool = true
     
     override func viewDidLoad() {
@@ -50,7 +56,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        // TODO: Do some form validation on the email and password
         
         if let email = emailTextField.text, let pass = passwordTextField.text{
             //Check if it's sign in or register
@@ -59,8 +64,7 @@ class ViewController: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: pass, completion: { (user, error) in
                     if let u = user{
                         //User is found, go to home screen
-                        self.performSegue(withIdentifier: "goToHome", sender: self) //need self keyword since inside closure
-                        
+                        self.performSegue(withIdentifier: "goToHome", sender: self)
                     }else{
                         //Error, check error
                     }
@@ -71,6 +75,7 @@ class ViewController: UIViewController {
                 Auth.auth().createUser(withEmail: email, password: pass, completion: { (user, error) in
                     //Check that user isn't nil
                     if let u = user{
+                        self.sendVerification()
                         //User is found, go to home screen
                         self.performSegue(withIdentifier: "goToHome", sender: self)
                     }else{
@@ -81,8 +86,33 @@ class ViewController: UIViewController {
             }
             
         }
-        
-        
+    }
+    
+    func sendVerification(){
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil{
+                print("Error: \(String(describing: error!.localizedDescription))")
+                return
+            }
+            Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
+                if error != nil{
+                    let emailNOTSentAlert = UIAlertController(title: "Email Verfication", message: "Verification email failed to send: \(String(describing: error?.localizedDescription))", preferredStyle: .alert)
+                    emailNOTSentAlert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                    self.present(emailNOTSentAlert, animated: true, completion: nil)
+                }else{
+                    let emailSentAlert = UIAlertController(title: "Email Verification", message: "Verification email has been sent. Please tap the link in the email to verify your account before you can use the features in the app", preferredStyle: .alert)
+                    emailSentAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(emailSentAlert, animated: true, completion: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
+                do {
+                    try Auth.auth().signOut()
+                }catch{
+                    //Error handling
+                }
+            })
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
